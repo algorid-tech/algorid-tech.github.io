@@ -1,1 +1,0 @@
-# algorid-tech.github.io
