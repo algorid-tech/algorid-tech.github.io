@@ -49,7 +49,7 @@ export const Team = () => {
                 {/* Social Links */}
                 <div className="flex justify-center space-x-3 pt-2">
                   <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors duration-200">
-                    <LinkedIn className="h-4 w-4" />
+                    <Link className="h-4 w-4" />
                   </button>
                   <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors duration-200">
                     <Mail className="h-4 w-4" />
