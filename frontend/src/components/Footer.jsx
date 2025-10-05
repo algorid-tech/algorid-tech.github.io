@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Link, Github, Twitter } from 'lucide-react';
 import { mockData } from '../mock';
 
 export const Footer = () => {
