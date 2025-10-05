@@ -1,5 +1,5 @@
 import { Card } from './ui/card';
-import { LinkedIn, Mail, Github } from 'lucide-react';
+import { Link, Mail, Github } from 'lucide-react';
 import { mockData } from '../mock';
 
 export const Team = () => {
