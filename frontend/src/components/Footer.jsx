@@ -45,7 +45,7 @@ export const Footer = () => {
             
             <div className="flex space-x-4">
               <button className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-200">
-                <Linkedin className="h-5 w-5" />
+                <Link className="h-5 w-5" />
               </button>
               <button className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-200">
                 <Github className="h-5 w-5" />
