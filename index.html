@@ -60,6 +60,47 @@
       ]
     }
     </script>
+
+    <!-- Structured Data: Professional Service (helps service-intent queries) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Algorid",
+      "url": "https://algorid.com",
+      "image": "https://algorid.com/og-image.png",
+      "description": "Algorid provides expert Odoo ERP development and implementation, AI & Machine Learning solutions, Django and React development.",
+      "priceRange": "$$",
+      "telephone": "+8801779977767",
+      "email": "contact@algorid.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dhaka",
+        "addressCountry": "Bangladesh"
+      },
+      "areaServed": ["Bangladesh", "Worldwide"],
+      "knowsAbout": [
+        "Odoo ERP development",
+        "Odoo implementation",
+        "Odoo module development",
+        "ERP customization",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Django development",
+        "React development"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Software Development Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Odoo ERP Development", "serviceType": "ERP Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Machine Learning", "serviceType": "AI Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Django Development", "serviceType": "Web Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "React Development", "serviceType": "Frontend Development" } }
+        ]
+      }
+    }
+    </script>
   </head>
 
   <body>
