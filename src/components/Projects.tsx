@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, GraduationCap, Code2, Terminal, Database, GitBranch, Check } from "lucide-react";
+import { ExternalLink, Code2, Terminal, Database, GitBranch, Check } from "lucide-react";
 
 const projects = [
   {
@@ -9,8 +9,6 @@ const projects = [
     description:
       "A free, open learning platform offering hands-on lessons in Python, JavaScript, SQL, Git, Odoo, and more — built to make high-quality programming education accessible to everyone worldwide.",
     url: "https://ylearner.org/",
-    icon: GraduationCap,
-    color: "from-blue-500 to-purple-600",
     tech: ["Python", "JavaScript", "SQL", "Git", "Odoo", "OWL.js"],
     highlights: [
       "Structured, beginner-to-advanced curriculum",
@@ -78,12 +76,13 @@ const Projects = () => {
                 </div>
 
                 {/* Mockup body */}
-                <div className={`relative rounded-xl overflow-hidden bg-gradient-to-br ${project.color} aspect-[16/10] p-8 flex flex-col items-center justify-center text-white`}>
-                  <project.icon className="h-16 w-16 mb-4 drop-shadow-lg" />
-                  <span className="font-display font-bold text-3xl mb-1 tracking-tight">
-                    ylearner
-                  </span>
-                  <span className="text-sm text-white/80 mb-6">
+                <div className="relative rounded-xl overflow-hidden bg-white aspect-[16/10] p-8 flex flex-col items-center justify-center">
+                  <img
+                    src="/yearner-logo.png"
+                    alt="ylearner logo"
+                    className="h-12 sm:h-14 w-auto mb-3"
+                  />
+                  <span className="text-sm text-gray-500 mb-6">
                     {project.tagline}
                   </span>
 
@@ -93,10 +92,10 @@ const Projects = () => {
                         key={topic.label}
                         className="flex flex-col items-center gap-1.5"
                       >
-                        <div className="w-11 h-11 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                          <topic.icon className="h-5 w-5" />
+                        <div className="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center">
+                          <topic.icon className="h-5 w-5 text-emerald-600" />
                         </div>
-                        <span className="text-[10px] text-white/70">{topic.label}</span>
+                        <span className="text-[10px] text-gray-500">{topic.label}</span>
                       </div>
                     ))}
                   </div>
