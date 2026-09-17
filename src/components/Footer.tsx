@@ -4,16 +4,16 @@ import icon from "@/assets/icon.png";
 
 const footerLinks = {
   company: [
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Features", href: "#features" },
-    { name: "Contact", href: "#contact" },
+    { name: "About Us", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    { name: "Features", href: "/#features" },
+    { name: "Contact", href: "/#contact" },
   ],
   services: [
-    { name: "Odoo Development", href: "#services" },
-    { name: "AI & ML Solutions", href: "#services" },
-    { name: "Django Development", href: "#services" },
-    { name: "React Development", href: "#services" },
+    { name: "Odoo Development", href: "/#services" },
+    { name: "AI & ML Solutions", href: "/#services" },
+    { name: "Django Development", href: "/#services" },
+    { name: "React Development", href: "/#services" },
   ],
 };
 
@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="grid grid-cols-12 gap-8 lg:gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-12 md:col-span-6">
-            <a href="#home" className="flex items-center gap-2 mb-4">
+            <a href="/#home" className="flex items-center gap-2 mb-4">
               <img src={icon} alt="Algorid logo" className="w-10 h-10 object-contain" />
               <span className="font-display font-bold text-xl">Algorid</span>
             </a>

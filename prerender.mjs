@@ -3,11 +3,17 @@
 // Runs automatically after `npm run build` via the "postbuild" script.
 import { preview } from "vite";
 import puppeteer from "puppeteer";
-import { writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 
 const PORT = 4173;
-const ROUTES = ["/"]; // add more routes here as the site grows
+// "/" must stay last: it overwrites dist/index.html, which the preview server
+// uses as the SPA fallback for the other routes.
+const ROUTES = [
+  "/algorid-capture/privacy-policy",
+  "/algorid-capture/privacy-policy.html",
+  "/",
+]; // add more routes here as the site grows
 
 const server = await preview({ preview: { port: PORT } });
 const base = `http://localhost:${PORT}`;
@@ -22,7 +28,9 @@ for (const route of ROUTES) {
   await page.goto(base + route, { waitUntil: "networkidle0" });
   await page.waitForSelector("#root > *", { timeout: 15000 });
   const html = await page.content();
-  const file = route === "/" ? "index.html" : `${route.replace(/^\//, "")}/index.html`;
+  const path = route.replace(/^\//, "");
+  const file = route === "/" ? "index.html" : path.endsWith(".html") ? path : `${path}/index.html`;
+  mkdirSync(dirname(resolve("dist", file)), { recursive: true });
   writeFileSync(resolve("dist", file), html);
   console.log("prerendered", route, "->", file);
   await page.close();

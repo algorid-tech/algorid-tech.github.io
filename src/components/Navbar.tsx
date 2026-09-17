@@ -6,11 +6,11 @@ import ThemeToggle from "@/components/ThemeToggle";
 import icon from "@/assets/icon.png";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Features", href: "#features" },
+  { name: "Home", href: "/#home" },
+  { name: "About", href: "/#about" },
+  { name: "Services", href: "/#services" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Features", href: "/#features" },
 ];
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
+          <a href="/#home" className="flex items-center gap-2">
             <img src={icon} alt="Algorid logo" className="h-10 w-10 object-contain" />
             <span className="font-display font-bold text-xl text-foreground">Algorid</span>
           </a>
@@ -47,7 +47,7 @@ const Navbar = () => {
           {/* Theme Toggle & CTA Button */}
           <div className="hidden lg:flex items-center gap-2">
             <ThemeToggle />
-            <a href="#contact">
+            <a href="/#contact">
               <Button className="gradient-primary text-primary-foreground font-semibold px-6">
                 Contact Us
               </Button>
@@ -89,7 +89,7 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
-                <a href="#contact" onClick={() => setIsOpen(false)}>
+                <a href="/#contact" onClick={() => setIsOpen(false)}>
                   <Button className="w-full gradient-primary text-primary-foreground font-semibold">
                     Contact Us
                   </Button>
