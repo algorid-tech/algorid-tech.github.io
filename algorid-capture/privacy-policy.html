@@ -6,13 +6,13 @@
   <title>Privacy Policy | Algorid Capture</title>
   <meta name="description" content="Privacy policy for the Algorid Capture Chrome extension by Algorid.">
   <style>
-    :root { --brand: #3B6CF5; --ink: #1f2430; --muted: #5f6370; --line: #e2e5ec; --wash: #f5f7fd; color-scheme: light dark; }
-    @media (prefers-color-scheme: dark) {
-      :root { --ink: #e8eaf0; --muted: #a6abb8; --line: #333846; --wash: #1b2030; --brand: #7FA0FA; }
-      body { background: #12151f; }
+    :root {
+      --brand: #3B6CF5; --ink: #1f2430; --muted: #5f6370;
+      --line: #e2e5ec; --wash: #f5f7fd; --bg: #ffffff; --th-ink: #ffffff;
+      color-scheme: light dark;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: #fff; }
+    body { margin: 0; font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
     header { border-bottom: 4px solid var(--brand); background: var(--wash); }
     .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
     header .wrap { padding-top: 36px; padding-bottom: 28px; }
@@ -32,9 +32,16 @@
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 15px; }
     th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
-    th { background: var(--brand); color: #fff; font-weight: 600; }
-    @media (prefers-color-scheme: dark) { th { color: #12151f; } }
+    th { background: var(--brand); color: var(--th-ink); font-weight: 600; }
     footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: 14px; }
+
+    /* Dark theme last, so these values win over the base rules above. */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --brand: #7FA0FA; --ink: #e8eaf0; --muted: #a6abb8;
+        --line: #333846; --wash: #1b2030; --bg: #12151f; --th-ink: #12151f;
+      }
+    }
   </style>
 </head>
 <body>
@@ -82,6 +89,7 @@
           <tr><td>Microphone audio (optional)</td><td>Voice in recordings</td><td>Only inside the recording on your device.</td></tr>
           <tr><td>Camera image (optional)</td><td>Camera bubble in recordings</td><td>Only inside the recording on your device.</td></tr>
           <tr><td>Click positions in the recorded tab</td><td>Drawing click highlight rings</td><td>Used in the moment to draw a ring. Not stored.</td></tr>
+          <tr><td>Camera position on the recorded page</td><td>Showing a dashed marker where the camera bubble appears</td><td>Drawn on the page during recording and removed when it ends. Not stored.</td></tr>
           <tr><td>Settings (recording options, last tab, recording status)</td><td>Remembering your preferences</td><td>Chrome extension storage on your device.</td></tr>
         </tbody>
       </table>
@@ -110,7 +118,7 @@
         <thead><tr><th>Permission</th><th>Used for</th></tr></thead>
         <tbody>
           <tr><td><code>activeTab</code></td><td>Access the current tab only after you click the extension or use its keyboard shortcut</td></tr>
-          <tr><td><code>scripting</code></td><td>Scroll the page for full page screenshots and draw click highlights during a recording</td></tr>
+          <tr><td><code>scripting</code></td><td>Scroll the page for full page screenshots, and draw click highlights and the camera position marker during a recording</td></tr>
           <tr><td><code>storage</code></td><td>Save your settings and recording status on your device</td></tr>
           <tr><td><code>tabCapture</code></td><td>Record the current tab when you start a tab recording</td></tr>
         </tbody>
