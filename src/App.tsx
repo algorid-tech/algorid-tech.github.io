@@ -13,6 +13,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/index.html" element={<Index />} />
           <Route path="/algorid-capture/privacy-policy" element={<AlgoridCapturePrivacy />} />
           <Route path="/algorid-capture/privacy-policy.html" element={<AlgoridCapturePrivacy />} />
           <Route path="*" element={<NotFound />} />
