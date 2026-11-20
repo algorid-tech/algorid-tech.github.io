@@ -110,12 +110,6 @@ const AlgoridFetch = () => {
             <Btn href={`${FILES}/${EXE}`} download>
               <Download className="h-4 w-4" /> Download for Windows
             </Btn>
-            <a
-              href="#install"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-border bg-background text-foreground font-semibold hover-lift hover:border-primary/50"
-            >
-              Linux and browser setup
-            </a>
           </div>
 
           <img
@@ -137,7 +131,7 @@ const AlgoridFetch = () => {
             ))}
           </ul>
 
-          <section id="install" className="scroll-mt-24">
+          <section>
             <H2 n={1}>Install the desktop app</H2>
             <div className="grid md:grid-cols-2 gap-5">
               <Card title="Windows" sub="Windows 10 and 11, 64-bit · 25 MB">
