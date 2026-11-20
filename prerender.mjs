@@ -12,6 +12,7 @@ const PORT = 4173;
 const ROUTES = [
   "/algorid-capture/privacy-policy",
   "/algorid-capture/privacy-policy.html",
+  "/algorid-fetch",
   "/",
 ]; // add more routes here as the site grows
 

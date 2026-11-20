@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AlgoridCapturePrivacy from "./pages/AlgoridCapturePrivacy";
+import AlgoridFetch from "./pages/AlgoridFetch";
 
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
@@ -16,6 +17,7 @@ const App = () => (
           <Route path="/index.html" element={<Index />} />
           <Route path="/algorid-capture/privacy-policy" element={<AlgoridCapturePrivacy />} />
           <Route path="/algorid-capture/privacy-policy.html" element={<AlgoridCapturePrivacy />} />
+          <Route path="/algorid-fetch" element={<AlgoridFetch />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
