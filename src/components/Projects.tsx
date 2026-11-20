@@ -12,8 +12,13 @@ import {
   Crop,
   Video,
   MousePointerClick,
+  Download,
+  Zap,
+  RotateCcw,
+  Puzzle,
 } from "lucide-react";
 import captureIcon from "@/assets/algorid-capture-icon.png";
+import fetchIcon from "@/assets/algorid-fetch-icon.png";
 
 type Project = {
   name: string;
@@ -23,7 +28,7 @@ type Project = {
   tech: string[];
   highlights: string[];
   links: { label: string; href: string; external?: boolean; primary?: boolean }[];
-  mockup: "ylearner" | "capture";
+  mockup: "ylearner" | "capture" | "fetch";
 };
 
 const projects: Project[] = [
@@ -60,6 +65,22 @@ const projects: Project[] = [
     ],
     mockup: "capture",
   },
+  {
+    name: "Algorid Fetch",
+    label: "Windows & Linux App",
+    tagline: "Fast, resumable downloads",
+    description:
+      "A free download manager that splits each file across many connections, resumes after a pause, a crash or a reboot, and works with Chrome and Firefox through a small extension.",
+    tech: ["Python", "Qt", "Chrome Extension", "Firefox Add-on", "yt-dlp"],
+    highlights: [
+      "Up to 32 connections per file, all kept busy until the end",
+      "Resumes after a pause, a crash or a reboot",
+      "Catches browser downloads and saves videos with a quality picker",
+      "Queue, speed limit and a terminal command for servers",
+    ],
+    links: [{ label: "Download Algorid Fetch", href: "/algorid-fetch", primary: true }],
+    mockup: "fetch",
+  },
 ];
 
 const ylearnerTopics = [
@@ -76,9 +97,21 @@ const captureTools = [
   { icon: MousePointerClick, label: "Clicks" },
 ];
 
+const fetchTools = [
+  { icon: Zap, label: "Fast" },
+  { icon: RotateCcw, label: "Resume" },
+  { icon: Video, label: "Videos" },
+  { icon: Puzzle, label: "Browser" },
+];
+
+const apps = {
+  capture: { icon: captureIcon, bar: "Chrome extension", topics: captureTools },
+  fetch: { icon: fetchIcon, bar: "Windows and Linux app", topics: fetchTools },
+};
+
 const Mockup = ({ project }: { project: Project }) => {
-  const isCapture = project.mockup === "capture";
-  const topics = isCapture ? captureTools : ylearnerTopics;
+  const app = project.mockup === "ylearner" ? null : apps[project.mockup];
+  const topics = app ? app.topics : ylearnerTopics;
 
   return (
     <div className="glass-card rounded-2xl p-3 hover-lift">
@@ -88,19 +121,19 @@ const Mockup = ({ project }: { project: Project }) => {
         <span className="w-3 h-3 rounded-full bg-yellow-400" />
         <span className="w-3 h-3 rounded-full bg-green-400" />
         <div className="ml-3 flex-1 rounded-md bg-muted/60 px-3 py-1 text-xs text-muted-foreground truncate">
-          {isCapture ? "Chrome extension" : "ylearner.org"}
+          {app ? app.bar : "ylearner.org"}
         </div>
-        {isCapture && (
-          <img src={captureIcon} alt="" className="h-5 w-5 rounded" aria-hidden="true" />
+        {app && (
+          <img src={app.icon} alt="" className="h-5 w-5 rounded" aria-hidden="true" />
         )}
       </div>
 
       {/* Mockup body */}
       <div className="relative rounded-xl overflow-hidden bg-white aspect-[16/10] p-8 flex flex-col items-center justify-center">
-        {isCapture ? (
+        {app ? (
           <div className="flex items-center gap-3 mb-3">
-            <img src={captureIcon} alt="Algorid Capture icon" className="h-12 sm:h-14 w-auto rounded-2xl" />
-            <span className="font-display text-xl sm:text-2xl font-bold text-gray-900">Algorid Capture</span>
+            <img src={app.icon} alt={`${project.name} icon`} className="h-12 sm:h-14 w-auto rounded-2xl" />
+            <span className="font-display text-xl sm:text-2xl font-bold text-gray-900">{project.name}</span>
           </div>
         ) : (
           <img src="/yearner-logo.png" alt="ylearner logo" className="h-12 sm:h-14 w-auto mb-3" />
@@ -112,10 +145,10 @@ const Mockup = ({ project }: { project: Project }) => {
             <div key={topic.label} className="flex flex-col items-center gap-1.5">
               <div
                 className={`w-11 h-11 rounded-xl flex items-center justify-center ${
-                  isCapture ? "bg-blue-50" : "bg-emerald-50"
+                  app ? "bg-blue-50" : "bg-emerald-50"
                 }`}
               >
-                <topic.icon className={`h-5 w-5 ${isCapture ? "text-blue-600" : "text-emerald-600"}`} />
+                <topic.icon className={`h-5 w-5 ${app ? "text-blue-600" : "text-emerald-600"}`} />
               </div>
               <span className="text-[10px] text-gray-500">{topic.label}</span>
             </div>
@@ -159,7 +192,7 @@ const Projects = () => {
             return (
               <motion.div
                 key={project.name}
-                id={project.mockup === "capture" ? "algorid-capture" : undefined}
+                id={project.mockup === "ylearner" ? undefined : `algorid-${project.mockup}`}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -216,7 +249,7 @@ const Projects = () => {
                           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl gradient-primary text-primary-foreground font-semibold hover-lift"
                         >
                           {link.label}
-                          <ExternalLink className="h-4 w-4" />
+                          {link.external ? <ExternalLink className="h-4 w-4" /> : <Download className="h-4 w-4" />}
                         </a>
                       ) : (
                         <a
